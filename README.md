@@ -1,6 +1,5 @@
 # Kotlin Web Crawler
 
-## Abstract
 This repository is intended to demonstrate the high-level design and implementation details of the web crawler.
 
 ## Problem statement
@@ -44,7 +43,7 @@ However, for this specific problem, it is preferable to traverse all links of a 
 
 #### Use Jsoup as HTML parser
 * Easy to use Java HTML Parser library.
-* No need to worry about `REGEX` pattern to parse all links.
+* Reeduces boilerplate code, so no need to worry about `REGEX` pattern to parse all links.
 
 ## Data structures
 * `HashTable` to keep track of visited links.
