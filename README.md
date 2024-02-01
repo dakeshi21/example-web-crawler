@@ -13,21 +13,26 @@ The `web crawler` is a program, which automatically traverses the web by downloa
 * It should print each URL visited, and a list of links found on that page.
 * The crawler should be limited to one subdomain(not follow external links, example facebook.com or community.example.com.)
 
-## Proposed solution 1: DFS order
-### Pros
+## Proposed solutions
+We can think of the Web as a directed graph where nodes are web pages and links(URLs) are edges. 
+The web-crawler can be seen as traversing a directed graph from one page to others. So we can use DFS and BFS as graph traversal algorithms.
+
+### Proposed solution 1: DFS order
+#### Pros
 * LIFO order. Starts at the root node and explores as far as possible along each branch before backtracking.
-* Recursive version is easy to implement.
+* Can be more memory-efficient in cases with deep graphs, as it doesn't need to store all nodes at the same level.
 
-### Cons
+#### Cons
+* Can get into loops or dead ends when website has a complex link structure(the depth of the DFS can be very deep), however we can set the limit to the depth of the search domain to prevent that issue.
 * Limited Call-stack size might cause the StackOverflowError.
-* Iterative implemetation requires an extra memory(Stack Data Structure).
 
-## Proposed solution 2: BFS order
-### Pros
+### Proposed solution 2: BFS order
+#### Pros
 * FIFO(Level-Order) traversal. Starts at the tree root and explores all nodes at the present depth prior to moving on to the nodes at the next depth level.
 
-### Cons
-* Iterative implemetation requires an extra memory(Queue Data Structure).
+#### Cons
+* May consume more memory than DFS when exploring deep graphs because it needs to store all nodes in memory at each level.
+* The Web is large and if a page has many links it may not fit in memory, however, like DFS, we can set a limit on the number of links at each level to prevent this problem.
 
 ## Prerefered solution
 The time complexity of both DFS and BFS traversal is `O(V + E)`, where `V` and `E` are the total number of vertices and edges in the graph, respectively.
